@@ -3,16 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super ()
+
+    this.state = {
+      groceryList: ["Bread", "Cereal", "Rice", "Pasta", "Bread", "Vegetables", "Carrots"]
+    }
+  }
+
   render() {
+    const mapList = this.state.groceryList.map(item => {
+      return <h2>{item}</h2>
+    })
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center'}}>
+        {mapList}
       </div>
     );
   }
